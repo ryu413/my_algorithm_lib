@@ -11,7 +11,8 @@ namespace algo::core::engine {
  * @param f 
  */
 template <class Frame>
-void transition_state(Frame& f) {
+auto transition_state(Frame& f) -> void
+{
     if (f.state == VisitState::Enter)
         f.state = VisitState::Exit;
 }

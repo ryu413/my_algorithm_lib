@@ -1,9 +1,11 @@
 #pragma once
 
-#include "handle_enter.hpp"
-#include "handle_exit.hpp"
-#include "push_child.hpp"
-#include "advance_parent.hpp"
+#include "core/frame.hpp"
+#include "core/visit_state.hpp"
+#include "core/engine/handle_enter.hpp"
+#include "core/engine/handle_exit.hpp"
+#include "core/engine/push_child.hpp"
+#include "core/engine/advance_parent.hpp"
 
 namespace algo::core::engine {
 
@@ -13,7 +15,7 @@ template <
     class Pre,
     class Post
 >
-void run(Node* root, ChildrenFn children) {
+auto run(Node* root, ChildrenFn children) -> void {
     if (!root) return;
 
     using Range = decltype(children(root));

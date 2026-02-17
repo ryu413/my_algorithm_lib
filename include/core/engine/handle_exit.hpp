@@ -10,7 +10,8 @@ namespace algo::core::engine {
  * @param f 
  */
 template <class Frame, class Post>
-void handle_exit(Frame& f, Post) {
+auto handle_exit(Frame& f, Post) -> void
+{
     Post::on_exit(f.node);
 }
 

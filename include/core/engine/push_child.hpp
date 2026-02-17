@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "../frame.hpp"
 
 namespace algo::core::engine {
@@ -16,7 +18,8 @@ namespace algo::core::engine {
  * @return false 
  */
 template <class Frame, class ChildrenFn>
-bool push_child(Frame& parent, ChildrenFn children, std::vector<Frame>& stack) {
+auto push_child(Frame& parent, ChildrenFn children, std::vector<Frame>& stack) -> bool
+{
     if (parent.it == parent.end) return false;
 
     auto* child = *parent.it++;

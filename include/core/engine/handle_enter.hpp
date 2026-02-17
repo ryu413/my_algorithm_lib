@@ -1,6 +1,9 @@
 #pragma once
 
-#include "../frame.hpp"
+#include <vector>
+
+#include "core/frame.hpp"
+#include "core/visit_state.hpp"
 
 namespace algo::core::engine {
 
@@ -17,7 +20,8 @@ namespace algo::core::engine {
  * @return false 
  */
 template <class Frame, class ChildrenFn, class Pre>
-bool handle_enter(Frame& f, ChildrenFn children, std::vector<Frame>& stack) {
+auto handle_enter(Frame& f, ChildrenFn children, std::vector<Frame>& stack) -> bool
+{
     Pre::on_enter(f.node);
 
     if (f.it != f.end) {

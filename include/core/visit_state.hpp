@@ -3,7 +3,8 @@
 
 namespace algo::core {
 
-enum class VisitState {
+enum class VisitState
+{
     Enter,
     Exit,
 };

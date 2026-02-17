@@ -10,7 +10,8 @@ template <
     class Pre,
     class Post
 >
-void basic_node_recursion(Node* root, ChildrenFn children) {
+auto basic_node_recursion(Node* root, ChildrenFn children) -> void
+{
     engine::run<Node, ChildrenFn, Pre, Post>(root, children);
 }
 

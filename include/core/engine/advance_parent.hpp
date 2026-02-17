@@ -1,5 +1,10 @@
 #pragma once
 
+#include <vector>
+
+#include "core/frame.hpp"
+#include "core/visit_state.hpp"
+
 namespace algo::core::engine {
 
 /**
