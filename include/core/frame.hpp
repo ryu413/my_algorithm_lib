@@ -1,36 +1,24 @@
-// frame.hpp
+/// @file frame.hpp
 #pragma once
-#include "visit_state.hpp"
-#include <variant>
 
-namespace algo::core {
+#include "recursion_primitives.hpp"
 
-template <class Node, class It, class Extra = std::monostate>
-struct Frame
-{
-    Node* node;
-    Node* parent;
-    It it;
-    It end;
-    VisitState state = VisitState::Enter;
-    int depth;
-    Extra extra;
+namespace algo::recursion {
 
-    Frame(
-        Node* node,
-        It it,
-        It end,
-        VisitState state,
-        int depth = 0
-    )   :   node(node),
-            parent(nullptr),
-            it(it),
-            end(end),
-            state(state),
-            depth(depth),
-            extra()
-    {}
-
+/**
+ * @brief 
+ * @details 再帰関数のスタックフレームを手動で再現
+ * @tparam Node 
+ * @tparam It 
+ */
+template <class Node, class It>
+struct Frame {
+    Node*       current;
+    int         depth;
+    It          it;
+    It          end;
+    PhaseKind   phase;      // 実行時フェーズ    (1byte)
+    ControlKind control;    // 実行時コントロール (1byte)
 };
 
-} // namespace algo::core
+} // namespace algo::recursion
